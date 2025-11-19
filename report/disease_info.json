@@ -1,0 +1,211 @@
+{
+  "Pepper__bell___Bacterial_spot": {
+    "symptoms": "Small, water-soaked, dark spots on leaves and fruit.",
+    "causes": "Xanthomonas campestris bacteria spread via wind and rain.",
+    "treatment": "Use copper-based bactericides and remove infected plants.",
+    "organic_treatment": "Neem oil or garlic-chili spray weekly.",
+    "chemical_treatment": "Copper oxychloride spray every 7–10 days.",
+    "fertilizer": "Balanced fertilizer like 10-10-10.",
+    "water": "Water early; avoid leaf wetting.",
+    "soil": "Well-drained loamy soil rich in organics.",
+    "humidity": "60-80%.",
+    "temperature": "24-30°C.",
+    "tips": "Practice crop rotation; use certified seeds."
+  },
+
+  "Pepper__bell___healthy": {
+    "symptoms": "No signs of disease. Green, uniform leaves and healthy fruit.",
+    "causes": "Proper care and environment.",
+    "treatment": "None required.",
+    "organic_treatment": "Compost, mulch, and neem oil as preventive.",
+    "chemical_treatment": "None required.",
+    "fertilizer": "NPK (10-10-10) every 3 weeks.",
+    "water": "Deep watering twice a week.",
+    "soil": "Loamy soil, pH 6.0–6.5.",
+    "humidity": "50-70%.",
+    "temperature": "18-26°C.",
+    "tips": "Mulch and maintain good airflow."
+  },
+
+  "Potato___Early_blight": {
+    "symptoms": "Brown concentric rings on lower leaves, yellowing foliage.",
+    "causes": "Fungus Alternaria solani.",
+    "treatment": "Fungicide like chlorothalonil.",
+    "organic_treatment": "Neem oil and baking soda solution.",
+    "chemical_treatment": "Chlorothalonil or mancozeb weekly.",
+    "fertilizer": "Potassium-rich (5-10-10).",
+    "water": "Drip irrigation, avoid wet leaves.",
+    "soil": "Sandy loam, well-drained.",
+    "humidity": "50-85%.",
+    "temperature": "20-30°C.",
+    "tips": "Remove debris; rotate crops."
+  },
+
+  "Potato___Late_blight": {
+    "symptoms": "Dark brown lesions with yellow halos on leaves.",
+    "causes": "Phytophthora infestans fungus.",
+    "treatment": "Fungicides like mancozeb.",
+    "organic_treatment": "Garlic extract spray, avoid wet foliage.",
+    "chemical_treatment": "Mancozeb or metalaxyl.",
+    "fertilizer": "High phosphorus fertilizer.",
+    "water": "Drip; avoid overhead.",
+    "soil": "Cool, moist, well-drained.",
+    "humidity": ">90%.",
+    "temperature": "15-20°C.",
+    "tips": "Destroy infected material immediately."
+  },
+
+  "Potato___healthy": {
+    "symptoms": "Dark green foliage, strong stems, no leaf spots.",
+    "causes": "Healthy environment and care.",
+    "treatment": "None required.",
+    "organic_treatment": "Compost tea, mulching.",
+    "chemical_treatment": "None required.",
+    "fertilizer": "10-10-20 early on.",
+    "water": "1-2 inches/week.",
+    "soil": "Loose, pH 5.0–6.0.",
+    "humidity": "60-70%.",
+    "temperature": "15-21°C.",
+    "tips": "Hill soil to avoid green potatoes."
+  },
+
+  "Tomato_Bacterial_spot": {
+    "symptoms": "Dark, greasy spots on leaves and fruit.",
+    "causes": "Xanthomonas spp. bacteria.",
+    "treatment": "Copper-based sprays.",
+    "organic_treatment": "Neem oil spray every 5 days.",
+    "chemical_treatment": "Copper hydroxide or streptomycin.",
+    "fertilizer": "Low-nitrogen blends.",
+    "water": "Avoid overhead watering.",
+    "soil": "Well-drained sandy soil.",
+    "humidity": ">85%.",
+    "temperature": "25-35°C.",
+    "tips": "Sanitize tools, rotate crops."
+  },
+
+  "Tomato_Early_blight": {
+    "symptoms": "Dark concentric circles on older leaves.",
+    "causes": "Alternaria solani fungus.",
+    "treatment": "Fungicides like chlorothalonil.",
+    "organic_treatment": "Baking soda spray or compost tea.",
+    "chemical_treatment": "Chlorothalonil or mancozeb.",
+    "fertilizer": "Phosphorus and potassium-rich.",
+    "water": "Drip preferred.",
+    "soil": "Loamy with drainage.",
+    "humidity": "60-80%.",
+    "temperature": "20-28°C.",
+    "tips": "Avoid touching wet leaves."
+  },
+
+  "Tomato_Late_blight": {
+    "symptoms": "Dark greasy lesions on leaves/stems.",
+    "causes": "Phytophthora infestans.",
+    "treatment": "Remove infected plants, apply fungicides.",
+    "organic_treatment": "Compost extract or garlic spray.",
+    "chemical_treatment": "Metalaxyl or chlorothalonil.",
+    "fertilizer": "High potassium blends.",
+    "water": "Water roots only.",
+    "soil": "Cool, moist, well-drained.",
+    "humidity": ">90%.",
+    "temperature": "10-20°C.",
+    "tips": "Space plants; avoid wetting leaves."
+  },
+
+  "Tomato_Leaf_Mold": {
+    "symptoms": "Yellow spots & mold underneath leaves.",
+    "causes": "Passalora fulva fungus.",
+    "treatment": "Fungicides like chlorothalonil.",
+    "organic_treatment": "Potassium bicarbonate spray.",
+    "chemical_treatment": "Chlorothalonil weekly.",
+    "fertilizer": "Boost potassium.",
+    "water": "Drip irrigation.",
+    "soil": "Sandy loam; good air flow.",
+    "humidity": ">85%.",
+    "temperature": "18-24°C.",
+    "tips": "Ensure ventilation."
+  },
+
+  "Tomato_Septoria_leaf_spot": {
+    "symptoms": "Round spots with dark edges.",
+    "causes": "Septoria lycopersici fungus.",
+    "treatment": "Fungicides + leaf removal.",
+    "organic_treatment": "Neem and baking soda spray.",
+    "chemical_treatment": "Chlorothalonil, mancozeb.",
+    "fertilizer": "Potassium-rich.",
+    "water": "Water at base only.",
+    "soil": "pH 6.0–6.8, well-drained.",
+    "humidity": "70-85%.",
+    "temperature": "20-25°C.",
+    "tips": "Mulch and rotate crops."
+  },
+
+  "Tomato_Spider_mites_Two_spotted_spider_mite": {
+    "symptoms": "Speckled leaves, webbing on underside.",
+    "causes": "Tetranychus urticae infestation.",
+    "treatment": "Use miticides or neem oil.",
+    "organic_treatment": "Insecticidal soap; misting.",
+    "chemical_treatment": "Abamectin or bifenthrin.",
+    "fertilizer": "Balanced 10-10-10.",
+    "water": "Keep soil moist.",
+    "soil": "Well-drained.",
+    "humidity": "Low humidity favors mites.",
+    "temperature": "27-32°C.",
+    "tips": "Increase humidity."
+  },
+
+  "Tomato__Target_Spot": {
+    "symptoms": "Dark concentric spots on older leaves.",
+    "causes": "Corynespora cassiicola fungus.",
+    "treatment": "Azoxystrobin fungicides.",
+    "organic_treatment": "Neem and garlic oil mix.",
+    "chemical_treatment": "Azoxystrobin every 7–10 days.",
+    "fertilizer": "Boost potassium and phosphorus.",
+    "water": "Avoid wetting leaves.",
+    "soil": "Well-aerated soil.",
+    "humidity": "70-90%.",
+    "temperature": "24-28°C.",
+    "tips": "Space well; prune regularly."
+  },
+
+  "Tomato__Tomato_YellowLeaf__Curl_Virus": {
+    "symptoms": "Leaf curling, yellowing, stunted growth.",
+    "causes": "Spread by whiteflies.",
+    "treatment": "Remove infected plants, control vectors.",
+    "organic_treatment": "Yellow sticky traps, neem spray.",
+    "chemical_treatment": "Imidacloprid for whiteflies.",
+    "fertilizer": "More nitrogen early on.",
+    "water": "Drip irrigation regularly.",
+    "soil": "Well-aerated, rich soil.",
+    "humidity": "60-75%.",
+    "temperature": "24-30°C.",
+    "tips": "Grow resistant varieties."
+  },
+
+  "Tomato__Tomato_mosaic_virus": {
+    "symptoms": "Mottled green foliage, stunted plants.",
+    "causes": "Tobacco Mosaic Virus (TMV).",
+    "treatment": "Remove infected plants immediately.",
+    "organic_treatment": "Sanitize hands/tools with milk solution.",
+    "chemical_treatment": "No chemical cure.",
+    "fertilizer": "Slow-release balanced fertilizer.",
+    "water": "Avoid splashing between plants.",
+    "soil": "Sterilized, well-drained.",
+    "humidity": "40-60%.",
+    "temperature": "20-28°C.",
+    "tips": "Do not smoke near plants."
+  },
+
+  "Tomato_healthy": {
+    "symptoms": "Shiny, deep green leaves and fruit.",
+    "causes": "Balanced care and climate.",
+    "treatment": "None.",
+    "organic_treatment": "Neem, compost, natural sprays.",
+    "chemical_treatment": "None required.",
+    "fertilizer": "NPK 10-10-10 every 3 weeks.",
+    "water": "2 inches weekly.",
+    "soil": "Sandy loam, pH 6.2–6.8.",
+    "humidity": "50-70%.",
+    "temperature": "21-27°C.",
+    "tips": "Prune lower leaves and stake well."
+  }
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Plant Disease Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #e0f7fa 0%, #a8e063 100%);
+            background-image: url('/static/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 50%, #a8e063 100%);
+            padding: 0.7rem 2rem;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            border: none;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            outline: none;
+        }
+        .navbar a:hover, .navbar a.active {
+            background: linear-gradient(90deg, #388e3c 0%, #a8e063 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px 0 rgba(56,142,60,0.18);
+        }
+        .logout-btn {
+            background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            outline: none;
+            flex-shrink: 0;
+        }
+        .logout-btn:hover {
+            background: linear-gradient(90deg, #388e3c 0%, #a8e063 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px 0 rgba(56,142,60,0.18);
+        }
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 50%, #a8e063 100%);
+            padding: 1rem 2rem 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1100;
+            box-sizing: border-box;
+            height: 64px;
+        }
+        .header-logo {
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+        }
+        .header-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0c2920;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+        }
+        .about-card {
+            max-width: 700px;
+            margin: 120px auto 40px auto;
+            background: rgba(255,255,255,0.92);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(34,49,63,0.18);
+            padding: 2.5rem 2rem 2rem 2rem;
+            color: #185a9d;
+        }
+        h2 {
+            color: #388e3c;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .about-section {
+            margin-bottom: 2rem;
+            padding: 1.2rem 1.2rem 1.2rem 2rem;
+            background: #f8f8f8;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+        }
+        .about-section b {
+            color: #185a9d;
+            font-size: 1.25rem;
+            display: block;
+            margin-bottom: 0.7rem;
+        }
+        .about-section p {
+            font-size: 1.15rem;
+            color: #185a9d;
+            margin: 0.5rem 0 0.5rem 0;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+        }
+        .about-features, .about-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .feature, .benefit {
+            background: #e0f7fa;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            flex: 1 1 220px;
+            color: #185a9d;
+            font-size: 1.08rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .feature-icon, .benefit-icon {
+            font-size: 1.7rem;
+        }
+        @media (max-width: 700px) {
+            .about-card { padding: 1.2rem 0.5rem; }
+            h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <img src="/static/background1.jpg" alt="Logo" class="header-logo">
+        <span class="header-title">Plant Diseases Detection Using Machine Learning</span>
+    </div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about" class="active">About</a>
+            <a href="/services">Services</a>
+            <a href="/aiassist">AI Assist</a>
+            <a href="/history" class="active">History</a>
+            <a href="/calculator" class="active">Fertilizer Calculator</a>
+        </div>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </nav>
+    <div class="about-card">
+        <h2>About Us</h2>
+        <div class="about-section">
+            <b>Who We Are</b>
+            <p>🌱 We are a team of passionate students combining agriculture and artificial intelligence to create practical solutions for farmers and gardeners. This project is part of our initiative to use technology for a healthier, more sustainable future in farming.</p>
+        </div>
+        <div class="about-section">
+            <b>Our Purpose</b>
+            <p>🤖 Our system helps farmers and gardeners detect plant diseases early, using the power of AI. Upload a photo of a plant leaf and get instant, accurate results—making plant care easier and more effective.</p>
+        </div>
+        <div class="about-section">
+            <b>Key Features</b>
+            <div class="about-features">
+                <div class="feature"><span class="feature-icon">🧠</span>AI-powered plant disease detection</div>
+                <div class="feature"><span class="feature-icon">🌿</span>Personalized fertilizer recommendations</div>
+                <div class="feature"><span class="feature-icon">📄</span>Downloadable PDF reports</div>
+                <div class="feature"><span class="feature-icon">💡</span>Sustainable farming tips</div>
+            </div>
+        </div>
+        <div class="about-section">
+            <b>Benefits for Farmers & Gardeners</b>
+            <div class="about-benefits">
+                <div class="benefit"><span class="benefit-icon">⚡</span>Instant results</div>
+                <div class="benefit"><span class="benefit-icon">💰</span>Reduce costs</div>
+                <div class="benefit"><span class="benefit-icon">🌾</span>Improve crop yield</div>
+                <div class="benefit"><span class="benefit-icon">📚</span>Empower with knowledge</div>
+            </div>
+        </div>
+        <div class="about-section">
+            <p>Our goal is to make advanced technology simple and accessible for everyone in agriculture. Together, we can grow healthier plants and build a better future.</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('logoutBtn').onclick = function() {
+            document.cookie = 'logged_in=; Max-Age=0; path=/;';
+            window.location.href = '/login';
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Assist - Plant Disease Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, #e0f7fa 0%, #a8e063 100%);
+            background-image: url('/static/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 50%, #a8e063 100%);
+            padding: 0.7rem 2rem;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            border: none;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            outline: none;
+        }
+        .navbar a:hover, .navbar a.active {
+            background: linear-gradient(90deg, #388e3c 0%, #a8e063 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px 0 rgba(56,142,60,0.18);
+        }
+        .logout-btn {
+            background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            outline: none;
+            flex-shrink: 0;
+        }
+        .logout-btn:hover {
+            background: linear-gradient(90deg, #388e3c 0%, #a8e063 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px 0 rgba(56,142,60,0.18);
+        }
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 50%, #a8e063 100%);
+            padding: 1rem 2rem 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1100;
+            box-sizing: border-box;
+            height: 64px;
+        }
+        .header-logo {
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+        }
+        .header-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0c2920;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+        }
+        .glass-container {
+            max-width: 600px;
+            margin: calc(64px + 64px + 2.5rem) auto 3rem auto;
+            background: rgba(255,255,255,0.18);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(34,49,63,0.18);
+            padding: 2.5rem 2rem 2rem 2rem;
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1.5px solid rgba(255,255,255,0.25);
+            text-align: center;
+        }
+        h2 {
+            color: #388e3c;
+        }
+        .ai-icon {
+            font-size: 2.2rem;
+            vertical-align: middle;
+        }
+        #chatbot {
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        #chat-window {
+            height: 260px;
+            overflow-y: auto;
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #43cea2;
+        }
+        #chat-form {
+            display: flex;
+            gap: 8px;
+        }
+        #chat-input {
+            flex: 1;
+            padding: 0.7rem;
+            border-radius: 8px;
+            border: 1px solid #43cea2;
+            font-size: 1rem;
+        }
+        #chat-input:focus {
+            outline: none;
+            border-color: #388e3c;
+        }
+        #chat-form button {
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            background: #43cea2;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+        #chat-form button:hover {
+            background: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <img src="/static/background1.jpg" alt="Logo" class="header-logo">
+        <span class="header-title">Plant Diseases Detection Using Machine Learning</span>
+    </div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/aiassist" class="active">AI Assist</a>
+            <a href="/history">History</a>
+            <a href="/calculator" class="active">Fertilizer Calculator</a>
+        </div>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </nav>
+    <div class="glass-container">
+        <h2><span class="ai-icon">🤖</span> AI Assist</h2>
+        <div id="chatbot">
+            <div id="chat-window" style="height:260px;overflow-y:auto;background:#f8f8f8;border-radius:8px;padding:12px;margin-bottom:16px;border:1px solid #43cea2;"></div>
+            <form id="chat-form" style="display:flex;gap:8px;">
+                <input type="text" id="chat-input" placeholder="Ask about disease, fertilizer, treatment..." style="flex:1;padding:0.7rem;border-radius:8px;border:1px solid #43cea2;font-size:1rem;">
+                <button type="submit" style="padding:0.7rem 1.2rem;border-radius:8px;background:#43cea2;color:#fff;font-weight:600;border:none;cursor:pointer;">Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('logoutBtn').onclick = function() {
+            document.cookie = 'logged_in=; Max-Age=0; path=/;';
+            window.location.href = '/login';
+        };
+        // Chatbot logic
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatWindow = document.getElementById('chat-window');
+        function formatBotResponse(text) {
+            // Add extra spacing between info lines
+            return text.replace(/Fertilizer:/g, '<br><b>Fertilizer:</b>')
+                       .replace(/Treatment:/g, '<br><b>Treatment:</b>')
+                       .replace(/Organic:/g, '<br><b>Organic:</b>')
+                       .replace(/Chemical:/g, '<br><b>Chemical:</b>')
+                       .replace(/Tips:/g, '<br><b>Tips:</b>')
+                       .replace(/Symptoms:/g, '<br><b>Symptoms:</b>');
+        }
+        chatForm.onsubmit = async function(e) {
+            e.preventDefault();
+            const userMsg = chatInput.value.trim();
+            if (!userMsg) return;
+            // Capitalize only first letter
+            const userMsgCap = userMsg.charAt(0).toUpperCase() + userMsg.slice(1).toLowerCase();
+            chatWindow.innerHTML += `<div style='margin-bottom:8px;text-align:right;'><span style='background:#a8e063;color:#fff;padding:6px 12px;border-radius:8px;display:inline-block;'>${userMsgCap}</span></div>`;
+            chatInput.value = '';
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            // Send to backend
+            const res = await fetch('/api/aiassist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: userMsg })
+            });
+            const data = await res.json();
+            if (data.diseases) {
+                let listHtml = '<div style="margin-bottom:8px;text-align:left;"><span style="background:#43cea2;color:#fff;padding:6px 12px;border-radius:8px;display:inline-block;">' + data.response + '<br><br>';
+                listHtml += '<b>Disease List:</b><ul style="list-style:none;padding:0;">';
+                data.diseases.forEach(d => {
+                    listHtml += `<li><button class='disease-btn' style='margin:4px 0;padding:6px 12px;border-radius:8px;background:#388e3c;color:#fff;border:none;cursor:pointer;'>${d}</button></li>`;
+                });
+                listHtml += '</ul></span></div>';
+                chatWindow.innerHTML += listHtml;
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+                setTimeout(() => {
+                    document.querySelectorAll('.disease-btn').forEach(btn => {
+                        btn.onclick = async function() {
+                            // Capitalize only first letter
+                            const btnTextCap = btn.textContent.charAt(0).toUpperCase() + btn.textContent.slice(1).toLowerCase();
+                            chatWindow.innerHTML += `<div style='margin-bottom:8px;text-align:right;'><span style='background:#a8e063;color:#fff;padding:6px 12px;border-radius:8px;display:inline-block;'>${btnTextCap}</span></div>`;
+                            chatWindow.scrollTop = chatWindow.scrollHeight;
+                            const res2 = await fetch('/api/aiassist', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ query: btn.textContent })
+                            });
+                            const data2 = await res2.json();
+                            chatWindow.innerHTML += `<div style='margin-bottom:8px;text-align:left;'><span style='background:#43cea2;color:#fff;padding:6px 12px;border-radius:8px;display:inline-block;'>${formatBotResponse(data2.response)}</span></div>`;
+                            chatWindow.scrollTop = chatWindow.scrollHeight;
+                        };
+                    });
+                }, 100);
+            } else {
+                chatWindow.innerHTML += `<div style='margin-bottom:8px;text-align:left;'><span style='background:#43cea2;color:#fff;padding:6px 12px;border-radius:8px;display:inline-block;'>${formatBotResponse(data.response)}</span></div>`;
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
+        };
+    </script>
+</body>
+</html>

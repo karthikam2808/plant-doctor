@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Plant Disease Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #a8e063 0%, #56ab2f 100%);
+            background-image: url('/static/background2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #a8e063;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .login-container {
+            background: rgba(255,255,255,0.18);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(34,49,63,0.18);
+            padding: 2.5rem 2rem 2rem 2rem;
+            width: 350px;
+            text-align: center;
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1.5px solid rgba(255,255,255,0.25);
+            transition: background 0.3s, color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.7);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px 0 rgba(56,142,60,0.10);
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        .theme-toggle.dark {
+            background: rgba(34,49,63,0.8);
+            color: #fff;
+        }
+        body.dark {
+            background: linear-gradient(120deg, #232526 0%, #414345 100%);
+            background-image: url('/static/background1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #232526;
+        }
+        body.dark .login-container {
+            background: rgba(34,34,34,0.35);
+            color: #fff;
+            border: 1.5px solid rgba(255,255,255,0.12);
+        }
+        body.dark .login-container h1,
+        body.dark .login-container p {
+            color: #e0e0e0;
+        }
+        .login-container h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #388e3c;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        .login-container p {
+            color: #4e944f;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container input[type="email"] {
+            width: 90%;
+            padding: 0.7rem 0.9rem;
+            margin: 0.7rem 0;
+            border: 1px solid #b2dfdb;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f6fff8;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .login-container input[type="email"]:focus {
+            border-color: #56ab2f;
+            box-shadow: 0 0 0 2px rgba(86,171,47,0.15);
+            outline: none;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #56ab2f;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1.2rem;
+        }
+        .login-container button:hover {
+            background: #388e3c;
+        }
+        .plant-icon {
+            width: 60px;
+            margin-bottom: 1.2rem;
+        }
+        /* ✅ Updated error message style for plain red line */
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+            text-align: left;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+    <div class="login-container">
+        <div id="formArea">
+            <form id="loginForm" method="post" action="/login" style="display:block;">
+                <img src="https://img.icons8.com/fluency/96/plant-under-sun.png" alt="Plant Disease Detection" class="plant-icon">
+                <h1>Plant Disease Detection</h1>
+                <p>Login to access the plant disease detection system</p>
+                <input type="email" name="email" placeholder="Email" required autocomplete="email">
+                <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+                <div class="error-message" id="errorMsg"></div>
+                    <button type="submit" id="loginSubmit">Login</button>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" id="toSignup" style="color:#fff;text-decoration:underline;cursor:pointer;font-size:1rem;">Don't have an account? Sign Up</a>
+                    </div>
+            </form>
+            <form id="signupForm" method="post" action="/signup" style="display:none;">
+                <img src="https://img.icons8.com/fluency/96/plant-under-sun.png" alt="Plant Disease Detection" class="plant-icon">
+                <h1>Sign Up</h1>
+                <p>Create a new account to use the plant disease detection system</p>
+                <input type="email" name="email" placeholder="Email" required autocomplete="email">
+                <input type="password" name="password" placeholder="Password" required autocomplete="new-password">
+                <div class="error-message" id="signupErrorMsg"></div>
+                    <button type="submit" id="signupSubmit">Sign Up</button>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" id="toLogin" style="color:#fff;text-decoration:underline;cursor:pointer;font-size:1rem;">Already have an account? Login</a>
+                    </div>
+            </form>
+        </div>
+            </div>
+    </div>
+    <script>
+        // Switch between login and signup forms
+        document.getElementById('toSignup').onclick = function(e) {
+            e.preventDefault();
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+            document.getElementById('errorMsg').textContent = '';
+        };
+        document.getElementById('toLogin').onclick = function(e) {
+            e.preventDefault();
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+            document.getElementById('signupErrorMsg').textContent = '';
+        };
+
+        // Theme toggle logic
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.onclick = function() {
+            document.body.classList.toggle('dark');
+            themeToggle.classList.toggle('dark');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        };
+
+        // Form references
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+
+        // Login form logic
+        loginForm.onsubmit = async function(e) {
+            e.preventDefault();
+            const formData = new FormData(loginForm);
+            const response = await fetch('/login', {
+                method: 'POST',
+                body: formData
+            });
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                let data = {};
+                try {
+                    data = await response.json();
+                } catch {}
+                if (data.error) {
+                    errorMsg.textContent = data.error;
+                } else {
+                    errorMsg.textContent = 'Invalid email or password';
+                }
+            }
+        };
+
+        // Signup form logic
+        signupForm.onsubmit = async function(e) {
+            e.preventDefault();
+            const formData = new FormData(signupForm);
+            const response = await fetch('/signup', {
+                method: 'POST',
+                body: formData
+            });
+            const signupError = document.getElementById('signupErrorMsg');
+
+            if (response.redirected) {
+                window.location.href = response.url;
+            } else {
+                let data = {};
+                try {
+                    data = await response.json();
+                } catch {}
+                signupError.textContent = data.error || 'Signup failed.';
+            }
+        };
+    </script>
+</body>
+</html>
